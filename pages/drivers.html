@@ -35,7 +35,7 @@
                 // Ensure we have 20 slots (10 rows x 2 columns), padding with placeholders if needed
                 const totalSlots = 20;
                 while (orderedDrivers.length < totalSlots) {
-                    orderedDrivers.push({ full_name: "Placeholder", driver_number: "", headshot_url: "../images/placeholder.png", team_name: "" });
+                    orderedDrivers.push({ full_name: "Placeholder", driver_number: "", headshot_url: "../images/def.png", team_name: "" });
                 }
 
                 const grid = document.getElementById('driversGrid');
@@ -44,13 +44,18 @@
                     slot.className = 'grid-slot';
                     // Add team_name as a data attribute for CSS color mapping
                     slot.setAttribute('data-team', driver.team_name);
+                    // Split full_name into first and last names
+                    const [firstName, lastName] = driver.full_name ? driver.full_name.split(' ') : ['', ''];
                     slot.innerHTML = `
                         <div class="driver-image-container">
-                            <img src="${driver.headshot_url || '../images/placeholder.png'}" alt="${driver.full_name}" class="driver-img" onerror="this.src='../images/placeholder.png';">
+                            <img src="${driver.headshot_url || '../images/def.png'}" alt="${driver.full_name}" class="driver-img" onerror="this.src='../images/def.png';">
                         </div>
                         <div class="driver-footer">
                             <span class="driver-number">${driver.driver_number}</span>
-                            <span class="driver-name">${driver.full_name}</span>
+                            <div class="driver-name-container">
+                                <span class="driver-first-name">${firstName}</span>
+                                <span class="driver-last-name">${lastName}</span>
+                            </div>
                         </div>
                     `;
                     grid.appendChild(slot);
