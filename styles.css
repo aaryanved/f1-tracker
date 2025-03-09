@@ -1,0 +1,165 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body with pure black background */
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    background-color: #000; /* Pure black background for the entire site */
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, #000 100%), /* Fade starts lower */
+        url('images/grid.png') no-repeat center center fixed;
+    background-size: 120%;
+    background-color: rgb(255, 255, 255);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    filter: blur(5px);
+    z-index: -1;
+}
+
+/* Hero section with logo */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.logo-container {
+    width: 600px;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(13px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.f1-logo {
+    width: 90%;
+    height: auto;
+}
+
+/* Navigation buttons section */
+.nav-buttons {
+    padding: 50px 0;
+    background: rgba(0, 0, 0, 0.7);
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Default button styles for all buttons */
+.nav-buttons button {
+    width: 200px;
+    height: 300px;
+    background-color: #e10600;
+    color: white;
+    border: none;
+    margin: 0;
+    border-radius: 15px;
+    font-size: 1.8em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.1s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.nav-buttons button:hover {
+    background-color: #ff3333;
+    transform: scale(1.05);
+}
+
+/* Custom Drivers button */
+.nav-buttons .drivers-btn {
+    background: none;
+    position: relative;
+    border-radius: 15px;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+
+.nav-buttons .drivers-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/sainz.png') no-repeat center center;
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.2); /* Light overlay in static state */
+    filter: blur(2px);
+    z-index: -1;
+    border-radius: 15px;
+}
+
+.nav-buttons .drivers-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Custom Live Race button */
+.nav-buttons .live-race-btn {
+    background: none;
+    position: relative;
+    border-radius: 15px;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+
+.nav-buttons .live-race-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/time.png') no-repeat right center; /* Shift to right side */
+    background-size: cover; /* Fill the button, cropping if needed */
+    background-color: rgba(255, 255, 255, 0.2); /* Light overlay in static state */
+    filter: blur(2px);
+    z-index: -1;
+    border-radius: 15px;
+}
+
+.nav-buttons .live-race-btn:hover {
+    transform: scale(1.05);
+}
