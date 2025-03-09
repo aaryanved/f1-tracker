@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F1 Tracker - Home</title>
+    <title>F1 Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="index-page">
@@ -12,16 +12,12 @@
             <img src="images/f1-logo.png" alt="F1 Logo" class="f1-logo">
         </div>
     </div>
-    <section class="nav-buttons">
+    <div class="nav-buttons">
         <button class="drivers-btn" onclick="navigateTo('pages/drivers.html')">Drivers</button>
         <button class="live-race-btn" onclick="navigateTo('pages/live-race.html')">Live Race</button>
-        <button onclick="navigateTo('#')">More Coming Soon</button>
-    </section>
+        <button style="background: none;" onclick="navigateTo('index.html')">Home</button>
+        <button style="background: none;">Stats</button>
+    </div>
     <script src="script.js"></script>
-    <script>
-        function navigateTo(page) {
-            window.location.href = page;
-        }
-    </script>
 </body>
 </html>

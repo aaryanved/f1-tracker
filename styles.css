@@ -1,21 +1,16 @@
-/* Reset default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-/* Body with pure black background */
 body {
     font-family: Arial, sans-serif;
     height: 100vh;
     overflow-x: hidden;
     position: relative;
-    background-color: #000; /* Pure black background for the entire site */
+    background-color: #000;
     scroll-behavior: smooth;
 }
-
-/* Background for index.html only */
 body.index-page::before {
     content: '';
     position: absolute;
@@ -24,7 +19,7 @@ body.index-page::before {
     width: 100%;
     height: 100%;
     background: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, #000 100%), /* Fade effect */
+        linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, #000 100%), 
         url('images/grid.png') no-repeat center center fixed;
     background-size: 120%;
     backdrop-filter: blur(5px);
@@ -33,8 +28,6 @@ body.index-page::before {
     z-index: -1;
     will-change: transform, opacity;
 }
-
-/* Hero section with logo (for index.html) */
 .hero {
     height: 100vh;
     display: flex;
@@ -43,7 +36,6 @@ body.index-page::before {
     position: relative;
     will-change: transform;
 }
-
 .logo-container {
     width: 600px;
     height: 600px;
@@ -57,13 +49,10 @@ body.index-page::before {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     will-change: transform;
 }
-
 .f1-logo {
     width: 90%;
     height: auto;
 }
-
-/* Navigation buttons section */
 .nav-buttons {
     padding: 50px 0;
     background: rgba(0, 0, 0, 0.7);
@@ -74,8 +63,6 @@ body.index-page::before {
     justify-content: center;
     will-change: transform;
 }
-
-/* Default button styles for all buttons */
 .nav-buttons button {
     width: 200px;
     height: 300px;
@@ -94,13 +81,10 @@ body.index-page::before {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
     will-change: transform;
 }
-
 .nav-buttons button:hover {
     background-color: #ff3333;
     transform: scale(1.05);
 }
-
-/* Custom Drivers button */
 .nav-buttons .drivers-btn {
     background: none;
     position: relative;
@@ -116,7 +100,6 @@ body.index-page::before {
     transition: transform 0.3s ease-out;
     will-change: transform;
 }
-
 .nav-buttons .drivers-btn::before {
     content: '';
     position: absolute;
@@ -126,17 +109,14 @@ body.index-page::before {
     height: 100%;
     background: url('images/sainz.png') no-repeat center center;
     background-size: cover;
-    background-color: rgba(255, 255, 255, 0.2); /* Light overlay in static state */
+    background-color: rgba(255, 255, 255, 0.2);
     filter: blur(2px);
     z-index: -1;
     border-radius: 15px;
 }
-
 .nav-buttons .drivers-btn:hover {
     transform: scale(1.05);
 }
-
-/* Custom Live Race button */
 .nav-buttons .live-race-btn {
     background: none;
     position: relative;
@@ -152,7 +132,6 @@ body.index-page::before {
     transition: transform 0.3s ease-out;
     will-change: transform;
 }
-
 .nav-buttons .live-race-btn::before {
     content: '';
     position: absolute;
@@ -160,55 +139,44 @@ body.index-page::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('images/time.png') no-repeat right center; /* Focus on right side */
-    background-size: cover; /* Fill the button */
-    background-color: rgba(255, 255, 255, 0.2); /* Light overlay in static state */
+    background: url('images/time.png') no-repeat right center;
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.2);
     filter: blur(2px);
     z-index: -1;
     border-radius: 15px;
 }
-
 .nav-buttons .live-race-btn:hover {
     transform: scale(1.05);
 }
-
-/* Content area for subpages */
 .content {
     padding: 20px;
     color: white;
     text-align: center;
 }
-
-/* Heading */
 .content h1 {
-    font-size: 3.5em; /* Increased size for prominence */
+    font-size: 3.5em;
     font-weight: bold;
-    margin-bottom: 30px; /* Add space below heading */
+    margin-bottom: 30px;
 }
-
-/* Drivers grid */
 .drivers-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    grid-template-rows: repeat(10, auto); /* 10 rows */
-    gap: 20px; /* Increased gap for better spacing */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(10, auto);
+    gap: 20px;
     margin-top: 20px;
-    justify-items: center; /* Center items in each grid cell */
+    justify-items: center;
 }
-
-/* Grid slot as a box */
 .grid-slot {
-    width: 350px; /* Fixed width */
-    display: flex; /* Use flex to stack image and footer */
-    flex-direction: column; /* Stack vertically */
-    min-height: 350px; /* Minimum height to maintain layout */
-    overflow: hidden; /* Ensure image stays within borders */
-    border-radius: 15px; /* Rounded rectangle */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add depth */
-    position: relative; /* For layering */
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    min-height: 350px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: relative;
 }
-
-/* Team-colored glass background */
 .grid-slot::before {
     content: '';
     position: absolute;
@@ -216,105 +184,89 @@ body.index-page::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)); /* Glass texture */
-    backdrop-filter: blur(5px); /* Glass effect */
-    -webkit-backdrop-filter: blur(5px); /* For Safari */
-    z-index: -1; /* Behind content */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: -1;
     border-radius: 15px;
 }
-
-/* Team-specific background colors */
 .grid-slot[data-team="Red Bull Racing"]::before {
-    background-color: rgba(30, 65, 255, 0.7); /* Red Bull blue with transparency */
+    background-color: rgba(30, 65, 255, 0.7);
 }
 .grid-slot[data-team="Mercedes"]::before {
-    background-color: rgba(0, 210, 190, 0.7); /* Mercedes teal with transparency */
+    background-color: rgba(0, 210, 190, 0.7);
 }
 .grid-slot[data-team="Ferrari"]::before {
-    background-color: rgba(220, 0, 0, 0.7); /* Ferrari red with transparency */
+    background-color: rgba(220, 0, 0, 0.7);
 }
 .grid-slot[data-team="McLaren"]::before {
-    background-color: rgba(255, 135, 0, 0.7); /* McLaren orange with transparency */
+    background-color: rgba(255, 135, 0, 0.7);
 }
 .grid-slot[data-team="Aston Martin"]::before {
-    background-color: rgba(0, 102, 94, 0.7); /* Aston Martin green with transparency */
+    background-color: rgba(0, 102, 94, 0.7);
 }
 .grid-slot[data-team="Alpine"]::before {
-    background-color: rgba(0, 144, 255, 0.7); /* Alpine blue with transparency */
+    background-color: rgba(0, 144, 255, 0.7);
 }
 .grid-slot[data-team="Williams"]::before {
-    background-color: rgba(0, 90, 255, 0.7); /* Williams blue with transparency */
+    background-color: rgba(0, 90, 255, 0.7);
 }
 .grid-slot[data-team="AlphaTauri"]::before {
-    background-color: rgba(43, 69, 98, 0.7); /* AlphaTauri navy with transparency */
+    background-color: rgba(43, 69, 98, 0.7);
 }
 .grid-slot[data-team="Alfa Romeo"]::before {
-    background-color: rgba(155, 0, 0, 0.7); /* Alfa Romeo red with transparency */
+    background-color: rgba(155, 0, 0, 0.7);
 }
 .grid-slot[data-team="Haas F1 Team"]::before {
-    background-color: rgba(255, 255, 255, 0.7); /* Haas white with transparency */
+    background-color: rgba(255, 255, 255, 0.7);
 }
-/* Placeholder team */
 .grid-slot[data-team=""]::before {
-    background-color: rgba(225, 6, 0, 0.7); /* Fallback red with transparency */
+    background-color: rgba(225, 6, 0, 0.7);
 }
-
-/* Driver image container */
 .driver-image-container {
     width: 100%;
-    height: 200px; /* Fixed height for better quality */
-    margin-top: 50px; /* Lower the image within the box */
+    height: 200px;
+    margin-top: 50px;
     overflow: hidden;
-    flex-shrink: 0; /* Prevent shrinking */
-    border-radius: 15px 15px 0 0; /* Rounded top corners */
+    flex-shrink: 0;
+    border-radius: 15px 15px 0 0;
 }
-
-/* Ensure image bottom aligns with footer top */
 .driver-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Fill the container with high quality */
-    object-position: center; /* Center the image to avoid cropping key areas */
-    image-rendering: auto; /* Optimize rendering for better quality */
-    border-radius: 15px 15px 0 0; /* Match container rounding */
+    object-fit: cover;
+    object-position: center;
+    image-rendering: auto;
+    border-radius: 15px 15px 0 0;
 }
-
-/* Driver footer */
 .driver-footer {
-    padding: 15px; /* Increased padding */
-    background: rgba(0, 0, 0, 0.3); /* Subtle overlay to maintain readability */
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
     color: white;
     text-align: center;
-    border-radius: 0 0 15px 15px; /* Rounded bottom corners */
+    border-radius: 0 0 15px 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px; /* Space between number and name */
-    width: 100%; /* Ensure footer spans the box */
-    flex-shrink: 0; /* Prevent shrinking */
+    gap: 10px;
+    width: 100%;
+    flex-shrink: 0;
 }
-
-/* Driver number */
 .driver-number {
-    font-size: 3em; /* Increased size to match combined height of two lines */
+    font-size: 3em;
     font-weight: bold;
-    line-height: 1.5; /* Adjust line height for better spacing */
+    line-height: 1.5;
 }
-
-/* Driver name container */
 .driver-name-container {
     display: flex;
-    flex-direction: column; /* Stack names vertically */
-    text-align: left; /* Align names to the left */
+    flex-direction: column;
+    text-align: left;
 }
-
 .driver-first-name, .driver-last-name {
     font-size: 1.5em;
     font-weight: bold;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 200px; /* Increased max-width */
+    max-width: 200px;
 }
-
-/* Placeholder image fallback is handled by the team-colored glass background */
