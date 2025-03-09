@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="content">
-        <h1>2023 Drivers' Championship Standings</h1>
+        <h1>2025 Formula 1 Grid</h1>
         <div class="drivers-grid" id="driversGrid">
             <!-- Grid slots will be dynamically populated -->
         </div>
@@ -17,41 +17,41 @@
     <script>
         // Fetch drivers data from OpenF1 API
         async function fetchDrivers() {
-            const sessionKey = 9158; // Session key from the sample (2023 session)
             try {
-                const response = await fetch(`https://api.openf1.org/v1/drivers?session_key=${sessionKey}`);
+                const response = await fetch('https://api.openf1.org/v1/drivers?session_key=latest');
                 if (!response.ok) throw new Error('Network response was not ok');
                 const drivers = await response.json();
 
-                // Manual mapping of 2023 Drivers' Championship standings to broadcast_name
-                const championshipOrder = {
-                    1: "M VERSTAPPEN", 11: "S PEREZ", 44: "L HAMILTON", 14: "F ALONSO", 16: "C LECLERC",
-                    4: "L NORRIS", 55: "C SAINZ", 63: "G RUSSELL", 81: "O PIASTRI", 18: "L STROLL",
-                    10: "P GASLY", 31: "E OCON", 23: "A ALBON", 22: "Y TSUNODA", 77: "V BOTTAS",
-                    27: "N HULKENBERG", 3: "D RICCIARDO", 24: "Z GUANYU", 20: "K MAGNUSSEN", 2: "L SARGEANT"
-                };
+                // Group drivers by team
+                const teams = {};
+                drivers.forEach(driver => {
+                    if (!teams[driver.team_name]) teams[driver.team_name] = [];
+                    teams[driver.team_name].push(driver);
+                });
 
-                // Filter and sort drivers based on championship order
-                const orderedDrivers = drivers
-                    .filter(driver => championshipOrder[driver.driver_number]) // Ensure only 2023 drivers
-                    .sort((a, b) => {
-                        const posA = Object.keys(championshipOrder).find(key => championshipOrder[key] === a.broadcast_name);
-                        const posB = Object.keys(championshipOrder).find(key => championshipOrder[key] === b.broadcast_name);
-                        return posA - posB;
-                    });
+                // Flatten the grouped drivers into a single array, keeping team pairs together
+                const orderedDrivers = Object.values(teams).flat();
+
+                // Ensure we have 20 slots (10 rows x 2 columns), padding with placeholders if needed
+                const totalSlots = 20;
+                while (orderedDrivers.length < totalSlots) {
+                    orderedDrivers.push({ full_name: "Placeholder", driver_number: "", headshot_url: "../images/placeholder.png", team_name: "" });
+                }
 
                 const grid = document.getElementById('driversGrid');
                 orderedDrivers.forEach(driver => {
                     const slot = document.createElement('div');
                     slot.className = 'grid-slot';
+                    // Add team_name as a data attribute for CSS color mapping
+                    slot.setAttribute('data-team', driver.team_name);
                     slot.innerHTML = `
-                        <div class="checkered-border top"></div>
-                        <div class="driver-info">
-                            <img src="${driver.headshot_url || '../images/placeholder.png'}" alt="${driver.broadcast_name}" class="driver-img" onerror="this.src='../images/placeholder.png';">
-                            <span class="driver-name">${driver.broadcast_name.replace('M ', 'Max ').replace('S ', 'Sergio ').replace('L ', 'Lewis ').replace('F ', 'Fernando ').replace('C ', 'Charles ').replace('L ', 'Lando ').replace('G ', 'George ').replace('O ', 'Oscar ').replace('P ', 'Pierre ').replace('E ', 'Esteban ').replace('A ', 'Alexander ').replace('Y ', 'Yuki ').replace('V ', 'Valtteri ').replace('N ', 'Nico ').replace('D ', 'Daniel ').replace('Z ', 'Zhou ').replace('K ', 'Kevin ')} ${driver.last_name}</span>
-                            <span class="driver-number">${driver.driver_number}</span>
+                        <div class="driver-image-container">
+                            <img src="${driver.headshot_url || '../images/placeholder.png'}" alt="${driver.full_name}" class="driver-img" onerror="this.src='../images/placeholder.png';">
                         </div>
-                        <div class="checkered-border bottom"></div>
+                        <div class="driver-footer">
+                            <span class="driver-number">${driver.driver_number}</span>
+                            <span class="driver-name">${driver.full_name}</span>
+                        </div>
                     `;
                     grid.appendChild(slot);
                 });
