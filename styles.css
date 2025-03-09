@@ -12,9 +12,11 @@ body {
     overflow-x: hidden;
     position: relative;
     background-color: #000; /* Pure black background for the entire site */
+    scroll-behavior: smooth;
 }
 
-body::before {
+/* Background for index.html only */
+body.index-page::before {
     content: '';
     position: absolute;
     top: 0;
@@ -22,23 +24,24 @@ body::before {
     width: 100%;
     height: 100%;
     background: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, #000 100%), /* Fade starts lower */
+        linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, #000 100%), /* Reintroduced fade */
         url('images/grid.png') no-repeat center center fixed;
     background-size: 120%;
-    background-color: rgb(255, 255, 255);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     filter: blur(5px);
     z-index: -1;
+    will-change: transform, opacity;
 }
 
-/* Hero section with logo */
+/* Hero section with logo (for index.html) */
 .hero {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    will-change: transform;
 }
 
 .logo-container {
@@ -52,6 +55,7 @@ body::before {
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    will-change: transform;
 }
 
 .f1-logo {
@@ -68,6 +72,7 @@ body::before {
     grid-template-columns: repeat(4, 200px);
     gap: 10px;
     justify-content: center;
+    will-change: transform;
 }
 
 /* Default button styles for all buttons */
@@ -82,11 +87,12 @@ body::before {
     font-size: 1.8em;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.1s, transform 0.2s;
+    transition: background-color 0.1s, transform 0.3s ease-out;
     display: flex;
     align-items: center;
     justify-content: center;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    will-change: transform;
 }
 
 .nav-buttons button:hover {
@@ -107,7 +113,8 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease-out;
+    will-change: transform;
 }
 
 .nav-buttons .drivers-btn::before {
@@ -142,7 +149,8 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease-out;
+    will-change: transform;
 }
 
 .nav-buttons .live-race-btn::before {
@@ -152,8 +160,8 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('images/time.png') no-repeat right center; /* Shift to right side */
-    background-size: cover; /* Fill the button, cropping if needed */
+    background: url('images/time.png') no-repeat right center; /* Focus on right side */
+    background-size: cover; /* Fill the button */
     background-color: rgba(255, 255, 255, 0.2); /* Light overlay in static state */
     filter: blur(2px);
     z-index: -1;
@@ -162,4 +170,82 @@ body::before {
 
 .nav-buttons .live-race-btn:hover {
     transform: scale(1.05);
+}
+
+/* Content area for subpages */
+.content {
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+/* Drivers grid */
+.drivers-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Increased gap for better spacing */
+    margin-top: 20px;
+}
+
+.grid-slot {
+    width: 400px; /* Increased width to accommodate full names */
+    background-color: #222; /* Dark gray for the slot */
+    position: relative;
+    padding: 15px; /* Increased padding for better layout */
+}
+
+/* Checkered border pattern */
+.checkered-border {
+    width: 100%;
+    height: 20px;
+    background: repeating-linear-gradient(
+        45deg,
+        #fff,
+        #fff 10px,
+        #ff0000 10px,
+        #ff0000 20px
+    );
+}
+
+.checkered-border.top {
+    border-bottom: 2px solid #000;
+}
+
+.checkered-border.bottom {
+    border-top: 2px solid #000;
+}
+
+/* Driver info */
+.driver-info {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Increased gap for better spacing */
+}
+
+.driver-img {
+    width: 80px; /* Increased size */
+    height: 80px; /* Increased size */
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.driver-name {
+    font-size: 1.5em; /* Increased font size */
+    font-weight: bold;
+    white-space: nowrap; /* Prevent name wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Truncate long names */
+    max-width: 200px; /* Increased max-width */
+}
+
+.driver-number {
+    font-size: 1.5em; /* Increased font size */
+    font-weight: bold;
+    color: #e10600; /* Red for number */
+}
+
+/* Placeholder image fallback */
+img.driver-img {
+    background-color: #444; /* Gray background if image fails */
 }

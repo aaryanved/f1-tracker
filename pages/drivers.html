@@ -2,9 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Drivers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Tracker - Drivers</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <h1>Coming Soon!</h1>
+    <div class="content">
+        <h1>2023 Drivers' Championship Standings</h1>
+        <div class="drivers-grid" id="driversGrid">
+            <!-- Grid slots will be dynamically populated -->
+        </div>
+    </div>
+    <script src="../script.js"></script>
+    <script>
+        // Fetch drivers data from OpenF1 API
+        async function fetchDrivers() {
+            const sessionKey = 9158; // Session key from the sample (2023 session)
+            try {
+                const response = await fetch(`https://api.openf1.org/v1/drivers?session_key=${sessionKey}`);
+                if (!response.ok) throw new Error('Network response was not ok');
+                const drivers = await response.json();
+
+                // Manual mapping of 2023 Drivers' Championship standings to broadcast_name
+                const championshipOrder = {
+                    1: "M VERSTAPPEN", 11: "S PEREZ", 44: "L HAMILTON", 14: "F ALONSO", 16: "C LECLERC",
+                    4: "L NORRIS", 55: "C SAINZ", 63: "G RUSSELL", 81: "O PIASTRI", 18: "L STROLL",
+                    10: "P GASLY", 31: "E OCON", 23: "A ALBON", 22: "Y TSUNODA", 77: "V BOTTAS",
+                    27: "N HULKENBERG", 3: "D RICCIARDO", 24: "Z GUANYU", 20: "K MAGNUSSEN", 2: "L SARGEANT"
+                };
+
+                // Filter and sort drivers based on championship order
+                const orderedDrivers = drivers
+                    .filter(driver => championshipOrder[driver.driver_number]) // Ensure only 2023 drivers
+                    .sort((a, b) => {
+                        const posA = Object.keys(championshipOrder).find(key => championshipOrder[key] === a.broadcast_name);
+                        const posB = Object.keys(championshipOrder).find(key => championshipOrder[key] === b.broadcast_name);
+                        return posA - posB;
+                    });
+
+                const grid = document.getElementById('driversGrid');
+                orderedDrivers.forEach(driver => {
+                    const slot = document.createElement('div');
+                    slot.className = 'grid-slot';
+                    slot.innerHTML = `
+                        <div class="checkered-border top"></div>
+                        <div class="driver-info">
+                            <img src="${driver.headshot_url || '../images/placeholder.png'}" alt="${driver.broadcast_name}" class="driver-img" onerror="this.src='../images/placeholder.png';">
+                            <span class="driver-name">${driver.broadcast_name.replace('M ', 'Max ').replace('S ', 'Sergio ').replace('L ', 'Lewis ').replace('F ', 'Fernando ').replace('C ', 'Charles ').replace('L ', 'Lando ').replace('G ', 'George ').replace('O ', 'Oscar ').replace('P ', 'Pierre ').replace('E ', 'Esteban ').replace('A ', 'Alexander ').replace('Y ', 'Yuki ').replace('V ', 'Valtteri ').replace('N ', 'Nico ').replace('D ', 'Daniel ').replace('Z ', 'Zhou ').replace('K ', 'Kevin ')} ${driver.last_name}</span>
+                            <span class="driver-number">${driver.driver_number}</span>
+                        </div>
+                        <div class="checkered-border bottom"></div>
+                    `;
+                    grid.appendChild(slot);
+                });
+            } catch (error) {
+                console.error('Error fetching drivers:', error);
+                const grid = document.getElementById('driversGrid');
+                grid.innerHTML = '<p>Error loading driver data. Please try again later.</p>';
+            }
+        }
+
+        // Navigation function
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+        // Load drivers on page load
+        window.onload = fetchDrivers;
+    </script>
 </body>
 </html>
