@@ -6,7 +6,7 @@
     <title>F1 Tracker - Home</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="index-page">
     <div class="hero">
         <div class="logo-container">
             <img src="images/f1-logo.png" alt="F1 Logo" class="f1-logo">
@@ -15,9 +15,13 @@
     <section class="nav-buttons">
         <button class="drivers-btn" onclick="navigateTo('pages/drivers.html')">Drivers</button>
         <button class="live-race-btn" onclick="navigateTo('pages/live-race.html')">Live Race</button>
-        <!-- Placeholder for future buttons -->
         <button onclick="navigateTo('#')">More Coming Soon</button>
     </section>
     <script src="script.js"></script>
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
 </body>
 </html>
