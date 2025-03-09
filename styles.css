@@ -37,6 +37,7 @@ header {
     background-color: #000;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     z-index: 1000;
 }
 .home-button {
@@ -48,6 +49,14 @@ header {
 .home-logo {
     width: 40px;
     height: auto;
+}
+.header-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 .hero {
     height: 100vh;
