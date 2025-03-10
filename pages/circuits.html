@@ -14,9 +14,60 @@
         <div class="header-title">Aaryan Ved Bhalla's F1 Tracker</div>
     </header>
     <div class="content">
-        <h1>Circuits</h1>
-        <p>This is the Circuits page. More content coming soon!</p>
+        <h1>2025 Formula 1 Circuits</h1>
+        <div class="circuits-grid" id="circuitsGrid">
+            <!-- Circuit buttons will be dynamically inserted here -->
+        </div>
     </div>
     <script src="../script.js"></script>
+    <script>
+        // F1 2025 Season Race Circuit Names and Countries
+        const circuits = [
+            { name: "Bahrain International Circuit", country: "Bahrain" },
+            { name: "Jeddah Street Circuit", country: "Saudi Arabia" },
+            { name: "Albert Park Circuit", country: "Australia" },
+            { name: "Baku City Circuit", country: "Azerbaijan" },
+            { name: "Miami International Autodrome", country: "USA" },
+            { name: "Circuit de Monaco", country: "Monaco" },
+            { name: "Circuit de Barcelona-Catalunya", country: "Spain" },
+            { name: "Circuit Gilles Villeneuve", country: "Canada" },
+            { name: "Red Bull Ring", country: "Austria" },
+            { name: "Silverstone Circuit", country: "UK" },
+            { name: "Hungaroring", country: "Hungary" },
+            { name: "Circuit de Spa-Francorchamps", country: "Belgium" },
+            { name: "Zandvoort Circuit", country: "Netherlands" },
+            { name: "Monza Circuit", country: "Italy" },
+            { name: "Marina Bay Street Circuit", country: "Singapore" },
+            { name: "Suzuka Circuit", country: "Japan" },
+            { name: "Lusail International Circuit", country: "Qatar" },
+            { name: "Circuit of the Americas", country: "USA" },
+            { name: "Autódromo Hermanos Rodríguez", country: "Mexico" },
+            { name: "Interlagos Circuit", country: "Brazil" },
+            { name: "Las Vegas Street Circuit", country: "USA" },
+            { name: "Yas Marina Circuit", country: "UAE" }
+        ];
+
+        // Function to create and display circuit buttons
+        function displayCircuits() {
+            const grid = document.getElementById('circuitsGrid');
+            circuits.forEach(circuit => {
+                const button = document.createElement('div');
+                button.className = 'circuit-button';
+                button.innerHTML = `
+                    <div class="circuit-image-container">
+                        <img src="../images/cir.png" alt="${circuit.name}" class="circuit-img">
+                    </div>
+                    <div class="circuit-footer">
+                        <span class="circuit-name">${circuit.name}</span>
+                        <span class="circuit-country">${circuit.country}</span>
+                    </div>
+                `;
+                grid.appendChild(button);
+            });
+        }
+
+        // Display circuits when the page loads
+        window.onload = displayCircuits;
+    </script>
 </body>
 </html>
