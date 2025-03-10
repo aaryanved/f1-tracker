@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Bahrain International Circuit",
+        "country": "Bahrain",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Bahrain%20carbon.png"
+    },
+    {
+        "name": "Jeddah Street Circuit",
+        "country": "Saudi Arabia",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Saudi%20Arabia%20carbon.png"
+    },
+    {
+        "name": "Albert Park Circuit",
+        "country": "Australia",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Australia.png"
+    },
+    {
+        "name": "Baku City Circuit",
+        "country": "Azerbaijan",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Azerbaijan%20carbon.png"
+    },
+    {
+        "name": "Miami International Autodrome",
+        "country": "USA",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Miami%20carbon.png"
+    },
+    {
+        "name": "Circuit de Monaco",
+        "country": "Monaco",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Monaco%20carbon.png"
+    },
+    {
+        "name": "Circuit de Barcelona-Catalunya",
+        "country": "Spain",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Spain%20carbon.png"
+    },
+    {
+        "name": "Circuit Gilles Villeneuve",
+        "country": "Canada",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Canada%20carbon.png"
+    },
+    {
+        "name": "Red Bull Ring",
+        "country": "Austria",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Austria%20carbon.png"
+    },
+    {
+        "name": "Silverstone Circuit",
+        "country": "UK",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Great%20Britain%20carbon.png"
+    },
+    {
+        "name": "Hungaroring",
+        "country": "Hungary",
+        "image": "https://media.formula1.com/image/upload/f_auto,c_limit,w_1440,q_auto/f_auto/q_auto/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Hungar%20carbon"
+    },
+    {
+        "name": "Circuit de Spa-Francorchamps",
+        "country": "Belgium",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Belgium%20carbon.png"
+    },
+    {
+        "name": "Zandvoort Circuit",
+        "country": "Netherlands",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Netherlands%20carbon.png"
+    },
+    {
+        "name": "Monza Circuit",
+        "country": "Italy",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Italy%20carbon.png"
+    },
+    {
+        "name": "Marina Bay Street Circuit",
+        "country": "Singapore",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Singapore%20carbon.png"
+    },
+    {
+        "name": "Suzuka Circuit",
+        "country": "Japan",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Japan%20carbon.png"
+    },
+    {
+        "name": "Lusail International Circuit",
+        "country": "Qatar",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Qatar%20carbon.png"
+    },
+    {
+        "name": "Circuit of the Americas",
+        "country": "USA",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/United%20States%20carbon.png"
+    },
+    {
+        "name": "Autódromo Hermanos Rodríguez",
+        "country": "Mexico",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Mexico%20carbon.png"
+    },
+    {
+        "name": "Interlagos Circuit",
+        "country": "Brazil",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Brazil%20carbon.png"
+    },
+    {
+        "name": "Las Vegas Street Circuit",
+        "country": "USA",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Las%20Vegas%20carbon.png"
+    },
+    {
+        "name": "Yas Marina Circuit",
+        "country": "UAE",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Abu%20Dhabi%20carbon.png"
+    },
+    {
+        "name": "Imola Circuit",
+        "country": "Italy",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Emilia-Romagna%20carbon.png"
+    },
+    {
+        "name": "Shanghai International Circuit",
+        "country": "China",
+        "image": "https://media.formula1.com/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/China%20carbon.png"
+    }
+]
