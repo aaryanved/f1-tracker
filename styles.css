@@ -62,7 +62,7 @@ header {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    color: white;
+    color: #e10600;
     font-size: 1.5em;
     font-weight: bold;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
