@@ -31,4 +31,4 @@ Welcome to **F1 Tracker**, a sleek and interactive web application designed to p
 - **Frontend**:
   - HTML5, CSS, JavaScript
 - **APIs**:
-  - [Open F1 API](https://openf1.org/) for live race data and driver information
+  - [Open F1 API](https://openf1.org/) for live race data and driver information.
